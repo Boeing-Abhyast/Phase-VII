@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="base_link_wheel_seperation" value="0.30" />
+  <xacro:property name="base_link_wheel_diameter" value="0.09" />
+  <xacro:property name="base_link_wheel_torque" value="0.01" />
+
+  <xacro:macro name="alpha_wheel_gazebo" params="suffix parent">
+    <gazebo reference="${parent}_${suffix}_wheel_link">
+      <mu1 value="1.0" />
+      <mu2 value="1.0" />
+      <kp  value="1000000.0" />
+      <kd  value="100.0" />
+      <maxVel  value="1.0" />
+      <minDepth  value="0.001" />
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:macro name="alpha_caster_gazebo" params="suffix">
+    <gazebo reference="${suffix}_caster_rotation_link">
+      <mu1 value="0.0" />
+      <mu2 value="0.0" />
+      <kp value="1000000.0" />
+      <kd value="100.0" />
+      <minDepth value="0.001" />
+      <maxVel value="1.0" />
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:macro name="alpha_base_gazebo" params="name">
+    <gazebo reference="${name}_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo>
+      <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <alwaysOn>true</alwaysOn>
+        <leftJoint>${name}_link_right_wheel_joint</leftJoint>
+        <rightJoint>${name}_link_left_wheel_joint</rightJoint>
+        <wheel_separation>${${name}_link_wheel_seperation}</wheel_separation>
+        <wheel_diameter>${${name}_link_wheel_diameter}</wheel_diameter>
+        <torque>${${name}_link_wheel_torque}</torque>
+        <publish_tf>1</publish_tf>
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <robotBaseFrame>base_footprint</robotBaseFrame>
+      </plugin>
+	  </gazebo>
+  </xacro:macro>
+
+</robot>
