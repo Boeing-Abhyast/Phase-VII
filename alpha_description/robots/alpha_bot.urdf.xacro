@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://ros.org/wiki/xacro"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="alpha" >
+
+  <!-- The following included files set up definitions of parts of the robot body -->
+  <!-- alpha base -->
+  <xacro:include filename="$(find alpha_description)/urdf/chassis/alpha_base.urdf.xacro" />
+
+  <!-- Now we can start using the macros included above to define the actual alpha -->
+  <xacro:alpha_base name="base"/>
+
+</robot>
