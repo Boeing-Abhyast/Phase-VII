@@ -47,7 +47,7 @@
       <limit effort="18" velocity="1.5"/>
       <safety_controller  k_velocity="1" />
       <dynamics damping="1.0" friction="0.0" />
-      <origin xyz="0 ${reflect * wheel_offset_y} ${wheel_offset_z}" rpy="${-M_PI/2} 0 0" />
+      <origin xyz="0 ${reflect * wheel_offset_y} ${wheel_offset_z}" rpy="${M_PI/2} 0 0" />
       <parent link="${parent}_rotation_link"/>
       <child link="${parent}_${suffix}_wheel_link"/>
     </joint>
@@ -114,13 +114,13 @@
   <!-- The xacro macro xacro:alpha_caster contains: caster and wheels -->
   <xacro:macro name="alpha_caster" params="suffix parent *origin ref_position">
 
-    <xacro:alpha_caster_hub parent="${parent}" suffix="${suffix}_caster" ref_position="${ref_position}" >
+    <xacro:alpha_caster_hub parent="${parent}" suffix="${suffix}" ref_position="${ref_position}" >
       <xacro:insert_block name="origin" />
     </xacro:alpha_caster_hub>
 
     <!-- wheel macros -->
-    <xacro:alpha_wheel parent="${suffix}_caster" suffix="l" reflect="1" />
-    <xacro:alpha_wheel parent="${suffix}_caster" suffix="r" reflect="-1" />
+    <xacro:alpha_wheel parent="${suffix}" suffix="left" reflect="-1" />
+    <xacro:alpha_wheel parent="${suffix}" suffix="right" reflect="1" />
 
     <!-- extensions -->
     <xacro:alpha_caster_gazebo suffix="${suffix}" />
