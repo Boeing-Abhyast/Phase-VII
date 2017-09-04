@@ -82,7 +82,7 @@
   <xacro:macro name="alpha_caster_hub" params="suffix parent *origin ref_position" >
     <joint name="${suffix}_rotation_joint" type="continuous">
       <axis xyz="0 0 1" />
-      <origin xyz="${caster_offset_x} 0 ${caster_offset_z}" rpy="${-M_PI/2} 0 0"/>
+      <origin xyz="${caster_offset_x} 0 ${caster_offset_z}" rpy="0 0 0"/>
       <limit effort="18" velocity="1.5"/>
       <safety_controller  k_velocity="1" />
       <calibration rising="${ref_position}" />
@@ -195,7 +195,7 @@
     </joint>
 
     <!-- caster macro -->
-    <xacro:alpha_caster suffix="fl" parent="${name}_link" ref_position="${- M_PI/4}" >
+    <xacro:alpha_caster suffix="fl" parent="${name}_link" ref_position="0" >
       <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
     </xacro:alpha_caster>
 

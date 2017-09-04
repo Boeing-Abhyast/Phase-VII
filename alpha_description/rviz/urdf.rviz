@@ -7,7 +7,11 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
-        - /RobotModel1/Status1
+        - /TF1/Frames1
+        - /TF1/Tree1
+        - /TF1/Tree1/base_footprint1
+        - /TF1/Tree1/base_footprint1/base_link1
+        - /TF1/Tree1/base_footprint1/base_link1/fl_caster_rotation_link1
       Splitter Ratio: 0.5
     Tree Height: 775
   - Class: rviz/Selection
@@ -114,10 +118,40 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        fl_caster_l_wheel_link:
+          Value: true
+        fl_caster_r_wheel_link:
+          Value: true
+        fl_caster_rotation_link:
+          Value: true
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_footprint:
+          base_link:
+            fl_caster_rotation_link:
+              fl_caster_l_wheel_link:
+                {}
+              fl_caster_r_wheel_link:
+                {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_footprint
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -138,7 +172,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.621292
+      Distance: 0.867239475
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -152,10 +186,10 @@ Visualization Manager:
       Focal Shape Size: 0.0500000007
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.785398006
+      Pitch: 0.169796035
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.790398002
+      Yaw: 4.20721817
     Saved: ~
 Window Geometry:
   Displays:
