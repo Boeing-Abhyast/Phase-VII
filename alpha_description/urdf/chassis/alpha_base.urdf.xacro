@@ -30,6 +30,7 @@
   <xacro:property name="base_cg_x" value="0.0" />
   <xacro:property name="base_cg_y" value="0.0" />
   <xacro:property name="base_cg_z" value="0.065" />
+  <xacro:property name="base_visual_offset" value="-0.095" />
   <xacro:property name="base_mass" value="2.4" />
 
   <!-- simplified box collision geometry for base -->
@@ -136,7 +137,7 @@
                  izz="0.03675" />
       </inertial>
       <visual>
-        <origin xyz="0 0 -0.095" rpy="0 0 0" />
+        <origin xyz="0 0 ${base_visual_offset}" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://alpha_description/meshes/chassis/base_plate.dae" />
         </geometry>
