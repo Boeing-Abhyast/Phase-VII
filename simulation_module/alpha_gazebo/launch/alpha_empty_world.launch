@@ -1,0 +1,17 @@
+<launch>
+
+  <!-- Launch Gazebo with empty_world map -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Spawn robot alpha into gazebo -->
+  <include file="$(find alpha_gazebo)/launch/include/gazebo_alpha.launch.xml" />
+
+  <!-- Publish the joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <!-- Publish current robot joint states using tf -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  
+</launch>
