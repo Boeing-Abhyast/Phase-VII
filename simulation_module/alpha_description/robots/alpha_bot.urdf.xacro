@@ -10,10 +10,19 @@
   <xacro:include filename="$(find alpha_description)/urdf/chassis/alpha_base.urdf.xacro" />
   <!-- kinect sensor -->
   <xacro:include filename="$(find alpha_description)/urdf/sensors/kinect/kinect.urdf.xacro" />
+  <!-- hokoyu laser sensor -->
+  <xacro:include filename="$(find alpha_description)/urdf/sensors/hokuyo_laser/hokuyo_lx30_laser.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual alpha -->
+  <!-- alpha base -->
   <xacro:alpha_base name="base"/>
+  <!-- kinect sensor -->
   <xacro:kinect_camera name="kinect" parent="base_link">
     <origin xyz="0 0.1575 0.181" rpy="0 0 ${M_PI/2}" />
   </xacro:kinect_camera>
+  <!-- hokoyu laser sensor -->
+  <xacro:hokuyo_lx30_laser name="hokuyo" parent="base_link" ros_topic="tilt_scan" update_rate="40" min_angle="-1.3962634" max_angle="1.3962634" >
+    <origin xyz="0 0 0.03" rpy="0 0 0" />
+  </xacro:hokuyo_lx30_laser>
+
 </robot>
