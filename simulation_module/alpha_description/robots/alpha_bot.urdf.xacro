@@ -9,7 +9,7 @@
   <!-- alpha base -->
   <xacro:include filename="$(find alpha_description)/urdf/chassis/alpha_base.urdf.xacro" />
   <!-- kinect sensor -->
-  <xacro:include filename="$(find alpha_description)/urdf/sensors/kinect/kinect.urdf.xacro" />
+  <xacro:include filename="$(find alpha_description)/urdf/sensors/kinect/v2/kinect.urdf.xacro" />
   <!-- hokoyu laser sensor -->
   <xacro:include filename="$(find alpha_description)/urdf/sensors/hokuyo_laser/hokuyo_lx30_laser.urdf.xacro" />
 

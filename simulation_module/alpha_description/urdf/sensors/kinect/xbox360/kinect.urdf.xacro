@@ -4,7 +4,7 @@
       xmlns:interface="http://ros.org/wiki/xacro"
       xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find alpha_description)/urdf/sensors/kinect/kinect.gazebo.xacro" />
+  <xacro:include filename="$(find alpha_description)/urdf/sensors/kinect/xbox360/kinect.gazebo.xacro" />
 
   <!-- Kinect Camera Location (Nominally 0) -->
   <xacro:property name="cal_kinect_x" value="0.0" />
@@ -31,13 +31,13 @@
       <visual>
         <origin xyz="0.0 0.012 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://alpha_description/meshes/sensors/kinect/kinect.dae" scale="0.001 0.001 0.001" />
+          <mesh filename="package://alpha_description/meshes/sensors/kinect/xbox360/kinect.dae"/>
         </geometry>
       </visual>
       <collision>
         <origin xyz="0.0 0.012 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://alpha_description/meshes/sensors/kinect/kinect.dae" scale="0.001 0.001 0.001" />
+          <mesh filename="package://alpha_description/meshes/sensors/kinect/xbox360/kinect.dae"/>
         </geometry>
       </collision>
     </link>
