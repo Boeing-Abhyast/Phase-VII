@@ -8,8 +8,12 @@
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- alpha base -->
   <xacro:include filename="$(find alpha_description)/urdf/chassis/alpha_base.urdf.xacro" />
+  <!-- kinect sensor -->
+  <xacro:include filename="$(find alpha_description)/urdf/sensors/kinect/kinect.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual alpha -->
   <xacro:alpha_base name="base"/>
-
+  <xacro:kinect_camera name="kinect" parent="base_link">
+    <origin xyz="-0.137376 0 0.091746" rpy="0 0 0" />
+  </xacro:kinect_camera>
 </robot>
