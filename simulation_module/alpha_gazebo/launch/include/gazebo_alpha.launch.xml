@@ -1,5 +1,10 @@
 <launch>
 
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.0"/>
+
+  <arg name="name" default="mobile_alpha"/>
   <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro"/>
 
   <!-- Parsing xacro and loading robot_description parameter -->
@@ -7,7 +12,12 @@
 
   <!-- Gazebo model spawner -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-        args=" -urdf -param robot_description -model mobile_base"
-        respawn="true" output="screen"/>
+        args=" -param robot_description
+               -urdf
+               -x $(arg x)
+               -y $(arg y)
+               -z $(arg z)
+               -model $(arg name)"
+        respawn="false" output="screen" />
 
 </launch>
