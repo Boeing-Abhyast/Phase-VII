@@ -8,7 +8,7 @@
   <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro"/>
 
   <!-- Parsing xacro and loading robot_description parameter -->
-  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
 
   <!-- Gazebo model spawner -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
