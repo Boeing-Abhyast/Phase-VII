@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro"/>
+  <arg name="urdf_model" default="$(find alpha_description)/robots/alpha_bot.urdf"/>
+
+  <!-- Parsing xacro and saving it into urdf -->
+  <node name="xacro" pkg="xacro" type="xacro" args="--inorder $(arg model) -o $(arg urdf_model)" />
+
+</launch>
