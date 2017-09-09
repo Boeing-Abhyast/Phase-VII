@@ -164,7 +164,7 @@
     </link>
 
     <joint name="${name}_footprint_joint" type="fixed">
-      <origin xyz="${base_cg_x} ${base_cg_y} ${base_cg_z}" rpy="0 0 0" />
+      <origin xyz="${base_cg_x} ${base_cg_y} ${base_cg_z}" rpy="0 0 ${-M_PI/2}" />
       <parent link="${name}_footprint"/>
       <child link="${name}_link" />
     </joint>
