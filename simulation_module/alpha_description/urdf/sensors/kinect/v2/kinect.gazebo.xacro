@@ -19,6 +19,7 @@
           </clip>
         </camera>
         <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+          <robotNamespace>/</robotNamespace>
           <alwaysOn>true</alwaysOn>
           <updateRate>20.0</updateRate>
           <cameraName>${name}</cameraName>

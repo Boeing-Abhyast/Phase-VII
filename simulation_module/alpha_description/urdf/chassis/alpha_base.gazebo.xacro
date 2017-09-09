@@ -42,6 +42,7 @@
     </gazebo>
     <gazebo>
       <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <robotNamespace>/</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <updateRate>20</updateRate>
         <leftJoint>fl_left_wheel_joint</leftJoint>
@@ -54,7 +55,6 @@
         <odometryTopic>odom</odometryTopic>
         <odometryFrame>odom</odometryFrame>
         <robotBaseFrame>${name}_footprint</robotBaseFrame>
-        <robotNamespace> </robotNamespace>
         <legacyMode>true</legacyMode>
         <publishWheelTF>true</publishWheelTF>
         <publishWheelJointState>true</publishWheelJointState>

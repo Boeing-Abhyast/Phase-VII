@@ -3,7 +3,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="hokuyo_lx30_laser_gazebo" params="name ros_topic update_rate min_angle max_angle">
-    <gazebo reference="${name}_link">
+    <gazebo reference="${name}_frame">
       <sensor type="ray" name="${name}">
         <always_on>true</always_on>
         <update_rate>${update_rate}</update_rate>
@@ -34,13 +34,13 @@
           </noise>
         </ray>
         <plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_laser.so">
+          <robotNamespace>/</robotNamespace>
           <gaussianNoise>0.005</gaussianNoise>
           <alwaysOn>true</alwaysOn>
           <updateRate>${update_rate}</updateRate>
           <topicName>${ros_topic}</topicName>
-          <frameName>${name}_link</frameName>
+          <frameName>${name}_frame</frameName>
           <hokuyoMinIntensity>101</hokuyoMinIntensity>
-          <robotNamespace>alpha</robotNamespace>
         </plugin>
       </sensor>
     </gazebo>

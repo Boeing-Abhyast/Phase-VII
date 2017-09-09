@@ -20,9 +20,12 @@
     <arg name="z" value="0.0"/>
   </include>
 
+  <!-- Launch robot alpha into rviz for visualization -->
+  <include file="$(find alpha_gazebo)/launch/include/rviz_alpha.launch.xml" />
+
   <!-- Publish current robot joint states using tf -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
     <param name="publish_frequency" type="double" value="50.0" />
   </node>
-  
+
 </launch>
