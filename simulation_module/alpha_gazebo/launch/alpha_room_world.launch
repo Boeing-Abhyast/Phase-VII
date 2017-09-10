@@ -4,14 +4,19 @@
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="debug" default="false"/>
+  <arg name="headless" default="false"/>
+  <arg name="recording" default="false"/>
 
   <!-- Launch Gazebo with tes_room -->
+  <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
     <arg name="debug" value="$(arg debug)"/>
-    <arg name="world_name" value="$(find alpha_gazebo)/worlds/test_room.sdf"/>
+    <arg name="headless" value="$(arg headless)"/> <!-- Inert - see gazebo_ros_pkgs issue #491-->
+    <arg name="recording" value="$(arg recording)"/>
+    <arg name="world_name" value="worlds/willowgarage.world"/>
   </include>
 
   <!-- Spawn robot alpha into gazebo -->
@@ -20,6 +25,9 @@
     <arg name="y" value="0.0"/>
     <arg name="z" value="0.0"/>
   </include>
+
+  <!-- Launch robot alpha into rviz for visualization -->
+  <include file="$(find alpha_gazebo)/launch/include/rviz_alpha.launch.xml" />
 
   <!-- Publish current robot joint states using tf -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
