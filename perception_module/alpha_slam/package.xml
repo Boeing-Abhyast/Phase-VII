@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>alpha_slam</name>
+  <version>0.0.0</version>
+  <description>The alpha_slam package</description>
+
+  <maintainer email="mayankm.iitk@gmail.com">Mayank Mittal</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>openslam_gmapping</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>tf</build_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>openslam_gmapping</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>tf</run_depend>
+
+</package>
