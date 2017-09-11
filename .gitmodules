@@ -1,7 +1,6 @@
 [submodule "perception_module/find-object"]
 	path = perception_module/find-object
 	url = https://github.com/introlab/find-object.git
-
 [submodule "perception_module/slam_gmapping"]
 	path = perception_module/slam_gmapping
 	url = https://github.com/ros-perception/slam_gmapping.git
