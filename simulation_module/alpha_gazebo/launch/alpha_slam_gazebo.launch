@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Spawn robot alpha into gazebo world room-->
+  <include file="$(find alpha_gazebo)/launch/alpha_room_world.launch" />
+
+  <!--run the keyboard_teleop node to manually control the robot -->
+  <node pkg="alpha_teleop" type="keyboard_teleop" name="keyboard_teleop" output="screen" />
+
+  <!--run the gmapping node to build the map -->
+  <include file="$(find alpha_slam)/launch/slam_gmapping.launch" />
+
+</launch>
