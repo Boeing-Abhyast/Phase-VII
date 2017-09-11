@@ -3,23 +3,23 @@
     <link name='base_footprint'>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose frame=''>0 0.005665 0.103683 0 -0 0</pose>
-        <mass>2.78</mass>
+        <pose frame=''>0.019002 0 0.074355 0 -0 0</pose>
+        <mass>10.3705</mass>
         <inertia>
-          <ixx>0.0625302</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0601388</iyy>
-          <iyz>-0.00224149</iyz>
-          <izz>0.0503034</izz>
+          <ixx>0.103971</ixx>
+          <ixy>-1.2142e-05</ixy>
+          <ixz>-0.0294803</ixz>
+          <iyy>0.125708</iyy>
+          <iyz>1.5304e-05</iyz>
+          <izz>0.0534854</izz>
         </inertia>
       </inertial>
       <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
-        <pose frame=''>0 0 0.065 0 -0 0</pose>
+        <pose frame=''>0 0 0.09169 0 0 -1.5708</pose>
         <geometry>
           <cylinder>
             <length>0.10938</length>
-            <radius>0.178</radius>
+            <radius>0.19</radius>
           </cylinder>
         </geometry>
         <surface>
@@ -32,16 +32,41 @@
         </surface>
       </collision>
       <collision name='base_footprint_fixed_joint_lump__fl_rotation_link_collision_1'>
-        <pose frame=''>0 0 0.045 0 0 -1.5708</pose>
+        <pose frame=''>0.11 0 0.037 1.5708 -0 1.5708</pose>
         <geometry>
-          <cylinder>
-            <length>0.0176</length>
-            <radius>0.017</radius>
-          </cylinder>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://alpha_description/meshes/chassis/caster_body.STL</uri>
+          </mesh>
         </geometry>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__hokuyo_frame_collision_2'>
-        <pose frame=''>0 0 0.3855 0 -0 0</pose>
+      <collision name='base_footprint_fixed_joint_lump__fl_caster_link_collision_2'>
+        <pose frame=''>0.11 0 0.011 1.5708 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://alpha_description/meshes/chassis/caster_ball.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+06</kp>
+              <kd>100</kd>
+              <max_vel>1</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.2</mu>
+              <mu2>0.2</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__hokuyo_frame_collision_3'>
+        <pose frame=''>0 0 0.3455 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.058 0.058 0.087</size>
@@ -56,8 +81,8 @@
           </friction>
         </surface>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__kinect_frame_collision_3'>
-        <pose frame=''>-0.012 0.1575 0.246 0 -0 1.5708</pose>
+      <collision name='base_footprint_fixed_joint_lump__kinect_frame_collision_4'>
+        <pose frame=''>0.125 0.012 0.252 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
@@ -82,22 +107,46 @@
         </geometry>
       </visual>
       <visual name='base_footprint_fixed_joint_lump__base_link_visual_1'>
-        <pose frame=''>0 0 -0.03 0 -0 0</pose>
+        <pose frame=''>0 0 0.006 1.5708 0 -1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://alpha_description/meshes/chassis/base_plate.dae</uri>
+            <uri>model://alpha_description/meshes/chassis/base_plate.STL</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <uri>__default__</uri>
-            <name>__default__</name>
+            <name>Gazebo/Grey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__hokuyo_frame_visual_2'>
-        <pose frame=''>0 0 0.397 0 -0 0</pose>
+      <visual name='base_footprint_fixed_joint_lump__fl_rotation_link_visual_2'>
+        <pose frame=''>0.11 0 0.037 1.5708 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://alpha_description/meshes/chassis/caster_body.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__fl_caster_link_visual_3'>
+        <pose frame=''>0.11 0 0.011 1.5708 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://alpha_description/meshes/chassis/caster_ball.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__hokuyo_frame_visual_4'>
+        <pose frame=''>0 0 0.357 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -111,8 +160,8 @@
           </script>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__kinect_frame_visual_3'>
-        <pose frame=''>-0.012 0.1575 0.246 0 -0 1.5708</pose>
+      <visual name='base_footprint_fixed_joint_lump__kinect_frame_visual_5'>
+        <pose frame=''>0.125 0.012 0.252 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
@@ -126,6 +175,7 @@
           </script>
         </material>
       </visual>
+      <velocity_decay/>
       <velocity_decay/>
       <velocity_decay/>
       <sensor name='hokuyo' type='ray'>
@@ -157,11 +207,11 @@
           <gaussianNoise>0.005</gaussianNoise>
           <alwaysOn>true</alwaysOn>
           <updateRate>40</updateRate>
-          <topicName>tilt_scan</topicName>
+          <topicName>base_scan</topicName>
           <frameName>hokuyo_frame</frameName>
           <hokuyoMinIntensity>101</hokuyoMinIntensity>
         </plugin>
-        <pose frame=''>0 0 0.397 0 -0 0</pose>
+        <pose frame=''>0 0 0.357 0 -0 0</pose>
       </sensor>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -204,30 +254,30 @@
           <focalLength>0</focalLength>
           <hackBaseline>0</hackBaseline>
         </plugin>
-        <pose frame=''>0 0.1575 0.246 0 -0 1.5708</pose>
+        <pose frame=''>0.125 0 0.252 0 -0 0</pose>
       </sensor>
     </link>
     <link name='fl_left_wheel_link'>
-      <pose frame=''>-0.14 -0 0.045 1.5708 0 -1.5708</pose>
+      <pose frame=''>-0.055 0.132 0.059 -0.785393 1.57079 -2.3562</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.01</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.001</iyy>
-          <iyz>0</iyz>
-          <izz>0.001</izz>
+          <ixx>0.00027992</ixx>
+          <ixy>-1.1223e-19</ixy>
+          <ixz>2.6988e-20</ixz>
+          <iyy>0.00027992</iyy>
+          <iyz>8.6881e-21</iyz>
+          <izz>0.00045332</izz>
         </inertia>
       </inertial>
       <collision name='fl_left_wheel_link_collision'>
-        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
-          <cylinder>
-            <length>0.0206</length>
-            <radius>0.035</radius>
-          </cylinder>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://alpha_description/meshes/chassis/wheel.STL</uri>
+          </mesh>
         </geometry>
         <surface>
           <contact>
@@ -235,7 +285,7 @@
               <kp>1e+06</kp>
               <kd>100</kd>
               <max_vel>1</max_vel>
-              <min_depth>0.001</min_depth>
+              <min_depth>0</min_depth>
             </ode>
           </contact>
           <friction>
@@ -251,13 +301,13 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://alpha_description/meshes/chassis/wheel.dae</uri>
+            <uri>model://alpha_description/meshes/chassis/wheel.STL</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <uri>__default__</uri>
-            <name>__default__</name>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
       </visual>
@@ -269,7 +319,7 @@
       <child>fl_left_wheel_link</child>
       <parent>base_footprint</parent>
       <axis>
-        <xyz>-1 -0 0</xyz>
+        <xyz>-0 1 0</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
@@ -284,26 +334,26 @@
       </axis>
     </joint>
     <link name='fl_right_wheel_link'>
-      <pose frame=''>0.14 0 0.045 1.5708 0 -1.5708</pose>
+      <pose frame=''>-0.055 -0.132 0.059 -0.785383 -1.57079 -0.785403</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.01</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.001</iyy>
-          <iyz>0</iyz>
-          <izz>0.001</izz>
+          <ixx>0.00027992</ixx>
+          <ixy>-1.1223e-19</ixy>
+          <ixz>2.6988e-20</ixz>
+          <iyy>0.00027992</iyy>
+          <iyz>8.6881e-21</iyz>
+          <izz>0.00045332</izz>
         </inertia>
       </inertial>
       <collision name='fl_right_wheel_link_collision'>
-        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
-          <cylinder>
-            <length>0.0206</length>
-            <radius>0.035</radius>
-          </cylinder>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://alpha_description/meshes/chassis/wheel.STL</uri>
+          </mesh>
         </geometry>
         <surface>
           <contact>
@@ -311,7 +361,7 @@
               <kp>1e+06</kp>
               <kd>100</kd>
               <max_vel>1</max_vel>
-              <min_depth>0.001</min_depth>
+              <min_depth>0</min_depth>
             </ode>
           </contact>
           <friction>
@@ -327,13 +377,13 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://alpha_description/meshes/chassis/wheel.dae</uri>
+            <uri>model://alpha_description/meshes/chassis/wheel.STL</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <uri>__default__</uri>
-            <name>__default__</name>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
       </visual>
@@ -345,7 +395,7 @@
       <child>fl_right_wheel_link</child>
       <parent>base_footprint</parent>
       <axis>
-        <xyz>-1 -0 0</xyz>
+        <xyz>-0 1 -0</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
@@ -363,11 +413,11 @@
     <plugin name='differential_drive_controller' filename='libgazebo_ros_diff_drive.so'>
       <robotNamespace>/</robotNamespace>
       <alwaysOn>true</alwaysOn>
-      <updateRate>20</updateRate>
+      <updateRate>100.0</updateRate>
       <leftJoint>fl_left_wheel_joint</leftJoint>
       <rightJoint>fl_right_wheel_joint</rightJoint>
       <wheelSeparation>0.30</wheelSeparation>
-      <wheelDiameter>0.09</wheelDiameter>
+      <wheelDiameter>0.07</wheelDiameter>
       <wheelTorque>20</wheelTorque>
       <wheelAcceleration>0</wheelAcceleration>
       <commandTopic>cmd_vel</commandTopic>
@@ -375,7 +425,7 @@
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <legacyMode>true</legacyMode>
-      <publishWheelTF>true</publishWheelTF>
+      <publishWheelTF>false</publishWheelTF>
       <publishWheelJointState>true</publishWheelJointState>
       <publishTf>1</publishTf>
     </plugin>
