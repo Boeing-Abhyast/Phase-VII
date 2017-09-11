@@ -50,8 +50,8 @@
         <updateRate>100.0</updateRate>
         <leftJoint>fl_left_wheel_joint</leftJoint>
         <rightJoint>fl_right_wheel_joint</rightJoint>
-        <wheelSeparation>0.30</wheelSeparation>
-        <wheelDiameter>0.07</wheelDiameter>
+        <wheelSeparation>0.308</wheelSeparation>
+        <wheelDiameter>0.106/wheelDiameter>
         <wheelTorque>20</wheelTorque>
         <wheelAcceleration>0</wheelAcceleration>
         <commandTopic>cmd_vel</commandTopic>
