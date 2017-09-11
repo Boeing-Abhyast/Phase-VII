@@ -33,14 +33,14 @@
   <!-- all simplified collision geometry are hand approximated from CAD model, sometimes from respective bounding boxes -->
   <link name="base_link">
     <inertial>
-      <mass value="2.4"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="0.019995" ixy="0.0" ixz="0.0" iyy="0.019995" iyz="0.0" izz="0.03675"/>
+      <mass value="1.3083"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.016994" ixy="1.2142E-05" ixz="-1.5304E-05" iyy="0.015814" iyz="0.00078225" izz="0.022766"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 -0.095"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alpha_description/meshes/chassis/base_plate.dae"/>
+        <mesh filename="package://alpha_description/meshes/chassis/base_plate.STL"/>
       </geometry>
       <material name="White"/>
     </visual>
@@ -63,21 +63,28 @@
     </visual>
   </link>
   <joint name="base_footprint_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.065"/>
+    <origin rpy="1.57079632679 0 0" xyz="0.0 0.12403 0.011243"/>
     <parent link="base_footprint"/>
     <child link="base_link"/>
+    <axis xyz="0 0 0"/>
   </joint>
   <joint name="fl_rotation_joint" type="fixed">
-    <origin rpy="0 0 -1.57079632679" xyz="0.0 0.0 -0.02"/>
+    <origin rpy="-1.57079632679 0 0" xyz="0.0 0.031 -0.11"/>
     <parent link="base_link"/>
     <child link="fl_rotation_link"/>
   </joint>
   <link name="fl_rotation_link">
     <inertial>
-      <mass value="0.01"/>
+      <mass value="0.0067"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+      <inertia ixx="7.34836188095286E-07" ixy="-8.85813875476203E-23" ixz="-2.27179291546233E-23" iyy="5.26473063708137E-07" iyz="-1.32876082683251E-22" izz="7.34836188095287E-07"/>
     </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://alpha_description/meshes/chassis/caster_body.STL"/>
+      </geometry>
+    </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -85,6 +92,31 @@
       </geometry>
     </collision>
   </link>
+  <link name="fl_caster_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.0005236"/>
+      <inertia ixx="5.236E-09" ixy="1.551E-25" ixz="1.034E-25" iyy="5.236E-09" iyz="6.2039E-25" izz="5.236E-09"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://alpha_description/meshes/chassis/caster_ball.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://alpha_description/meshes/chassis/caster_ball.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="fl_caster_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.026 0"/>
+    <parent link="fl_rotation_link"/>
+    <child link="fl_caster_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
   <transmission name="fl_rotation_trans" type="alpha_mechanism_model/SimpleTransmission">
     <actuator name="fl_rotation_motor">
       <mechanicalReduction>-79.2380952381</mechanicalReduction>
@@ -94,24 +126,24 @@
     </joint>
   </transmission>
   <joint name="fl_left_wheel_joint" type="continuous">
-    <axis xyz="0 0 1"/>
+    <axis xyz="0 0 -1"/>
     <limit effort="18" velocity="1.5"/>
     <safety_controller k_velocity="1"/>
     <dynamics damping="1.0" friction="0.0"/>
-    <origin rpy="1.57079632679 0 0" xyz="0 -0.14 0.0"/>
+    <origin rpy="1.57079632679 0 -1.57079632679" xyz="0.132 0.022 -0.165"/>
     <parent link="fl_rotation_link"/>
     <child link="fl_left_wheel_link"/>
   </joint>
   <link name="fl_left_wheel_link">
     <inertial>
-      <mass value="0.01"/>
+      <mass value="0.38"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+      <inertia ixx="0.00027992" ixy="-1.1223E-19" ixz="2.6988E-20" iyy="0.00027992" iyz="8.6881E-21" izz="0.00045332"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alpha_description/meshes/chassis/wheel.dae"/>
+        <mesh filename="package://alpha_description/meshes/chassis/wheel.STL"/>
       </geometry>
       <material name="Black"/>
     </visual>
@@ -141,20 +173,20 @@
     <limit effort="18" velocity="1.5"/>
     <safety_controller k_velocity="1"/>
     <dynamics damping="1.0" friction="0.0"/>
-    <origin rpy="1.57079632679 0 0" xyz="0 0.14 0.0"/>
+    <origin rpy="1.57079632679 0 1.57079632679" xyz="-0.132 0.022 -0.165"/>
     <parent link="fl_rotation_link"/>
     <child link="fl_right_wheel_link"/>
   </joint>
   <link name="fl_right_wheel_link">
     <inertial>
-      <mass value="0.01"/>
+      <mass value="0.38"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+      <inertia ixx="0.00027992" ixy="-1.1223E-19" ixz="2.6988E-20" iyy="0.00027992" iyz="8.6881E-21" izz="0.00045332"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alpha_description/meshes/chassis/wheel.dae"/>
+        <mesh filename="package://alpha_description/meshes/chassis/wheel.STL"/>
       </geometry>
       <material name="Black"/>
     </visual>
@@ -293,7 +325,7 @@
   </gazebo>
   <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0"/>
-    <origin rpy="0 0 0" xyz="0 0 0.332"/>
+    <origin rpy="0 0 1.57079632679" xyz="0 0 0.332"/>
     <parent link="base_link"/>
     <child link="hokuyo_frame"/>
   </joint>
@@ -351,7 +383,7 @@
         <gaussianNoise>0.005</gaussianNoise>
         <alwaysOn>true</alwaysOn>
         <updateRate>40</updateRate>
-        <topicName>tilt_scan</topicName>
+        <topicName>base_scan</topicName>
         <frameName>hokuyo_frame</frameName>
         <hokuyoMinIntensity>101</hokuyoMinIntensity>
       </plugin>

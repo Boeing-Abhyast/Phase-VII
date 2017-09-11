@@ -15,23 +15,23 @@
   <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <xacro:property name="caster_offset_x" value="0.0" />
-  <xacro:property name="caster_offset_y" value="0.0" />
-  <xacro:property name="caster_offset_z" value="-0.02" />
-  <xacro:property name="caster_mass" value="0.01" />
+  <xacro:property name="caster_offset_y" value="0.031" />
+  <xacro:property name="caster_offset_z" value="-0.11" />
+  <xacro:property name="caster_mass" value="0.0067" />
   <xacro:property name="caster_collision_length" value="0.0176" />
   <xacro:property name="caster_collision_radius" value="0.017" />
 
-  <xacro:property name="wheel_offset_y" value="0.14" />
-  <xacro:property name="wheel_offset_z" value="0.0" />
-  <xacro:property name="wheel_mass" value="0.01" />
+  <xacro:property name="wheel_offset_x" value="-0.132" />
+  <xacro:property name="wheel_offset_y" value="0.022" />
+  <xacro:property name="wheel_offset_z" value="-0.165" />
+  <xacro:property name="wheel_mass" value="0.38" />
   <xacro:property name="wheel_length" value="0.0206" />
   <xacro:property name="wheel_radius" value="0.0350" />
 
   <xacro:property name="base_cg_x" value="0.0" />
-  <xacro:property name="base_cg_y" value="0.0" />
-  <xacro:property name="base_cg_z" value="0.065" />
-  <xacro:property name="base_visual_offset" value="-0.095" />
-  <xacro:property name="base_mass" value="2.4" />
+  <xacro:property name="base_cg_y" value="0.12403" />
+  <xacro:property name="base_cg_z" value="0.011243" />
+  <xacro:property name="base_mass" value="1.3083" />
 
   <!-- simplified box collision geometry for base -->
   <xacro:property name="base_collision_length" value="0.10938" />
@@ -43,11 +43,11 @@
   <xacro:macro name="alpha_wheel" params="suffix parent reflect">
 
     <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
-      <axis xyz="0 0 1" />
+      <axis xyz="0 0 ${reflect * 1}" />
       <limit effort="18" velocity="1.5"/>
       <safety_controller  k_velocity="1" />
       <dynamics damping="1.0" friction="0.0" />
-      <origin xyz="0 ${reflect * wheel_offset_y} ${wheel_offset_z}" rpy="${M_PI/2} 0 0" />
+      <origin xyz="${reflect * wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${M_PI/2} 0 ${reflect * M_PI/2}" />
       <parent link="${parent}_rotation_link"/>
       <child link="${parent}_${suffix}_wheel_link"/>
     </joint>
@@ -56,14 +56,17 @@
       <inertial>
         <mass value="${wheel_mass}" />
         <origin xyz="0 0 0" />
-        <inertia  ixx="0.001" ixy="0.0" ixz="0.0"
-                  iyy="0.001" iyz="0.0"
-                  izz="0.001" />
+        <inertia ixx="0.00027992"
+                 ixy="-1.1223E-19"
+                 ixz="2.6988E-20"
+                 iyy="0.00027992"
+                 iyz="8.6881E-21"
+                 izz="0.00045332"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://alpha_description/meshes/chassis/wheel.dae" />
+          <mesh filename="package://alpha_description/meshes/chassis/wheel.STL" />
         </geometry>
         <material name="Black" />
       </visual>
@@ -85,7 +88,7 @@
   <xacro:macro name="alpha_caster_hub" params="suffix parent *origin ref_position" >
 
     <joint name="${suffix}_rotation_joint" type="fixed">
-      <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 ${-M_PI/2}"/>
+      <xacro:insert_block name="origin" />
       <parent link="${parent}"/>
       <child link="${suffix}_rotation_link" />
     </joint>
@@ -94,10 +97,22 @@
       <inertial>
         <mass value="${caster_mass}"/>
         <origin xyz="0 0 0" />
-        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                 iyy="0.001" iyz="0.0"
-                 izz="0.001" />
+        <inertia ixx="7.34836188095286E-07"
+                 ixy="-8.85813875476203E-23"
+                 ixz="-2.27179291546233E-23"
+                 iyy="5.26473063708137E-07"
+                 iyz="-1.32876082683251E-22"
+                 izz="7.34836188095287E-07" />
       </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://alpha_description/meshes/chassis/caster_body.STL" />
+        </geometry>
+      </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -105,6 +120,38 @@
         </geometry>
       </collision>
     </link>
+
+    <link name="${suffix}_caster_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.0005236" />
+        <inertia ixx="5.236E-09"
+                 ixy="1.551E-25"
+                 ixz="1.034E-25"
+                 iyy="5.236E-09"
+                 iyz="6.2039E-25"
+                 izz="5.236E-09" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://alpha_description/meshes/chassis/caster_ball.STL" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://alpha_description/meshes/chassis/caster_ball.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${suffix}_caster_joint" type="fixed">
+      <origin xyz="0 -0.026 0" rpy="0 0 0" />
+      <parent link="${suffix}_rotation_link" />
+      <child link="${suffix}_caster_link" />
+      <axis xyz="0 0 0" />
+    </joint>
 
     <!-- extensions -->
     <xacro:alpha_caster_transmission suffix="${suffix}" />
@@ -131,15 +178,15 @@
     <link name="${name}_link">
       <inertial>
         <mass value="${base_mass}" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.019995" ixy="0.0" ixz="0.0"
-                 iyy="0.019995" iyz="0.0"
-                 izz="0.03675" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.016994" ixy="1.2142E-05" ixz="-1.5304E-05"
+                 iyy="0.015814" iyz="0.00078225"
+                 izz="0.022766" />
       </inertial>
       <visual>
-        <origin xyz="0 0 ${base_visual_offset}" rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://alpha_description/meshes/chassis/base_plate.dae" />
+          <mesh filename="package://alpha_description/meshes/chassis/base_plate.STL" />
         </geometry>
         <material name="White" />
       </visual>
@@ -164,14 +211,15 @@
     </link>
 
     <joint name="${name}_footprint_joint" type="fixed">
-      <origin xyz="${base_cg_x} ${base_cg_y} ${base_cg_z}" rpy="0 0 ${-M_PI/2}" />
+      <origin xyz="${base_cg_x} ${base_cg_y} ${base_cg_z}" rpy="${M_PI/2} 0 0" />
       <parent link="${name}_footprint"/>
       <child link="${name}_link" />
+      <axis xyz="0 0 0" />
     </joint>
 
     <!-- caster macro -->
     <xacro:alpha_caster suffix="fl" parent="${name}_link" ref_position="${- M_PI/4}" >
-      <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="0 0 0" />
+      <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="${-M_PI/2} 0 0" />
     </xacro:alpha_caster>
 
     <!-- gazebo extensions -->

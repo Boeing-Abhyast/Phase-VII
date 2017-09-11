@@ -1,0 +1,29 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base_link" [label="base_link"];
+"fl_rotation_link" [label="fl_rotation_link"];
+"fl_caster_link" [label="fl_caster_link"];
+"fl_left_wheel_link" [label="fl_left_wheel_link"];
+"fl_right_wheel_link" [label="fl_right_wheel_link"];
+"hokuyo_frame" [label="hokuyo_frame"];
+"kinect_frame" [label="kinect_frame"];
+"kinect_optical_frame" [label="kinect_optical_frame"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "base_footprint_joint" [label="xyz: 0 0.12403 0.011243 \nrpy: 1.5708 -0 0"]
+"base_footprint_joint" -> "base_link"
+"base_link" -> "fl_rotation_joint" [label="xyz: 0 0.031 -0.11 \nrpy: -1.5708 0 0"]
+"fl_rotation_joint" -> "fl_rotation_link"
+"fl_rotation_link" -> "fl_caster_joint" [label="xyz: 0 -0.026 0 \nrpy: 0 -0 0"]
+"fl_caster_joint" -> "fl_caster_link"
+"fl_rotation_link" -> "fl_left_wheel_joint" [label="xyz: 0.132 0.022 -0.165 \nrpy: 1.5708 5.55112e-17 -1.5708"]
+"fl_left_wheel_joint" -> "fl_left_wheel_link"
+"fl_rotation_link" -> "fl_right_wheel_joint" [label="xyz: -0.132 0.022 -0.165 \nrpy: 1.5708 -5.55112e-17 1.5708"]
+"fl_right_wheel_joint" -> "fl_right_wheel_link"
+"base_link" -> "hokuyo_joint" [label="xyz: 0 0 0.332 \nrpy: 0 -0 1.5708"]
+"hokuyo_joint" -> "hokuyo_frame"
+"base_link" -> "kinect_frame_joint" [label="xyz: 0 0.1575 0.181 \nrpy: 0 -0 1.5708"]
+"kinect_frame_joint" -> "kinect_frame"
+"kinect_frame" -> "kinect_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"kinect_optical_joint" -> "kinect_optical_frame"
+}
