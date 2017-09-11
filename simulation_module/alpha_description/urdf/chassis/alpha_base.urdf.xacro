@@ -15,28 +15,19 @@
   <xacro:property name="M_PI" value="3.1415926535897931" />
 
   <xacro:property name="caster_offset_x" value="0.0" />
-  <xacro:property name="caster_offset_y" value="0.031" />
-  <xacro:property name="caster_offset_z" value="-0.11" />
-  <xacro:property name="caster_mass" value="0.0067" />
-  <xacro:property name="caster_collision_length" value="0.0176" />
-  <xacro:property name="caster_collision_radius" value="0.017" />
+  <xacro:property name="caster_offset_y" value="0.11" />
+  <xacro:property name="caster_offset_z" value="0.0" />
+  <xacro:property name="caster_mass" value="0.067" />
 
   <xacro:property name="wheel_offset_x" value="-0.132" />
   <xacro:property name="wheel_offset_y" value="0.022" />
   <xacro:property name="wheel_offset_z" value="-0.165" />
-  <xacro:property name="wheel_mass" value="0.38" />
-  <xacro:property name="wheel_length" value="0.0206" />
-  <xacro:property name="wheel_radius" value="0.0350" />
+  <xacro:property name="wheel_mass" value="0.4" />
 
-  <xacro:property name="base_cg_x" value="0.0" />
-  <xacro:property name="base_cg_y" value="0.12403" />
-  <xacro:property name="base_cg_z" value="0.011243" />
+  <xacro:property name="base_z" value="0.037" />
   <xacro:property name="base_mass" value="1.3083" />
-
-  <!-- simplified box collision geometry for base -->
   <xacro:property name="base_collision_length" value="0.10938" />
-  <xacro:property name="base_collision_radius" value="0.178" />
-  <xacro:property name="base_collision_z" value="0.05949" />
+  <xacro:property name="base_collision_radius" value="0.19" />
 
   <!-- Macro for aplha wheel (right/left)-->
   <!-- in typical convention param "reflect" equals +-1 to distinguish left from righ-->
@@ -73,7 +64,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
-          <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+          <mesh filename="package://alpha_description/meshes/chassis/wheel.STL" />
         </geometry>
       </collision>
     </link>
@@ -96,7 +87,7 @@
     <link name="${suffix}_rotation_link">
       <inertial>
         <mass value="${caster_mass}"/>
-        <origin xyz="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <inertia ixx="7.34836188095286E-07"
                  ixy="-8.85813875476203E-23"
                  ixz="-2.27179291546233E-23"
@@ -105,18 +96,15 @@
                  izz="7.34836188095287E-07" />
       </inertial>
       <visual>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh
-            filename="package://alpha_description/meshes/chassis/caster_body.STL" />
+          <mesh filename="package://alpha_description/meshes/chassis/caster_body.STL" />
         </geometry>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <cylinder length="${caster_collision_length}" radius="${caster_collision_radius}"/>
+          <mesh filename="package://alpha_description/meshes/chassis/caster_body.STL" />
         </geometry>
       </collision>
     </link>
@@ -184,14 +172,14 @@
                  izz="0.022766" />
       </inertial>
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 -0.031" rpy="${M_PI/2} 0 0" />
         <geometry>
           <mesh filename="package://alpha_description/meshes/chassis/base_plate.STL" />
         </geometry>
         <material name="White" />
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 ${base_collision_length/2}" rpy="0 0 0" />
         <geometry>
           <cylinder radius="${base_collision_radius}" length="${base_collision_length}" />
         </geometry>
@@ -211,7 +199,7 @@
     </link>
 
     <joint name="${name}_footprint_joint" type="fixed">
-      <origin xyz="${base_cg_x} ${base_cg_y} ${base_cg_z}" rpy="${M_PI/2} 0 0" />
+      <origin xyz="0 0 ${base_z}" rpy="0 0 0" />
       <parent link="${name}_footprint"/>
       <child link="${name}_link" />
       <axis xyz="0 0 0" />
@@ -219,7 +207,7 @@
 
     <!-- caster macro -->
     <xacro:alpha_caster suffix="fl" parent="${name}_link" ref_position="${- M_PI/4}" >
-      <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="${-M_PI/2} 0 0" />
+      <origin xyz="${caster_offset_x} ${caster_offset_y} ${caster_offset_z}" rpy="${M_PI/2} 0 ${M_PI}" />
     </xacro:alpha_caster>
 
     <!-- gazebo extensions -->
