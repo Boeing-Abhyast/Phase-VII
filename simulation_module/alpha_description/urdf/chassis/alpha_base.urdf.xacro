@@ -17,15 +17,15 @@
   <xacro:property name="caster_offset_x" value="0.0" />
   <xacro:property name="caster_offset_y" value="0.11" />
   <xacro:property name="caster_offset_z" value="0.0" />
-  <xacro:property name="caster_mass" value="0.067" />
+  <xacro:property name="caster_mass" value="0.2" />
 
   <xacro:property name="wheel_offset_x" value="-0.132" />
   <xacro:property name="wheel_offset_y" value="0.022" />
   <xacro:property name="wheel_offset_z" value="-0.165" />
-  <xacro:property name="wheel_mass" value="0.4" />
+  <xacro:property name="wheel_mass" value="1.0" />
 
   <xacro:property name="base_z" value="0.037" />
-  <xacro:property name="base_mass" value="1.3083" />
+  <xacro:property name="base_mass" value="8.5" />
   <xacro:property name="base_collision_length" value="0.10938" />
   <xacro:property name="base_collision_radius" value="0.19" />
 
@@ -62,7 +62,7 @@
         <material name="Black" />
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
+        <origin xyz="0 0 0" rpy="0 0 0" /> <!-- rotation because cyl. geom primitive has symmetry axis in +x direction -->
         <geometry>
           <mesh filename="package://alpha_description/meshes/chassis/wheel.STL" />
         </geometry>
@@ -100,6 +100,7 @@
         <geometry>
           <mesh filename="package://alpha_description/meshes/chassis/caster_body.STL" />
         </geometry>
+        <material name="Black" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -167,8 +168,11 @@
       <inertial>
         <mass value="${base_mass}" />
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="0.016994" ixy="1.2142E-05" ixz="-1.5304E-05"
-                 iyy="0.015814" iyz="0.00078225"
+        <inertia ixx="0.016994"
+                 ixy="1.2142E-05"
+                 ixz="-1.5304E-05"
+                 iyy="0.015814"
+                 iyz="0.00078225"
                  izz="0.022766" />
       </inertial>
       <visual>
@@ -199,7 +203,7 @@
     </link>
 
     <joint name="${name}_footprint_joint" type="fixed">
-      <origin xyz="0 0 ${base_z}" rpy="0 0 0" />
+      <origin xyz="0 0 ${base_z}" rpy="0 0 ${-M_PI/2}" />
       <parent link="${name}_footprint"/>
       <child link="${name}_link" />
       <axis xyz="0 0 0" />
