@@ -24,7 +24,7 @@
   <xacro:property name="wheel_offset_z" value="-0.165" />
   <xacro:property name="wheel_mass" value="1.0" />
 
-  <xacro:property name="base_z" value="0.037" />
+  <xacro:property name="base_z" value="0.0365" />
   <xacro:property name="base_mass" value="8.5" />
   <xacro:property name="base_collision_length" value="0.10938" />
   <xacro:property name="base_collision_radius" value="0.19" />
