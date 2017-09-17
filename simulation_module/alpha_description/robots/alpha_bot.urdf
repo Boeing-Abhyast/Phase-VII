@@ -63,7 +63,7 @@
     </visual>
   </link>
   <joint name="base_footprint_joint" type="fixed">
-    <origin rpy="0 0 -1.57079632679" xyz="0 0 0.037"/>
+    <origin rpy="0 0 -1.57079632679" xyz="0 0 0.0365"/>
     <parent link="base_footprint"/>
     <child link="base_link"/>
     <axis xyz="0 0 0"/>
