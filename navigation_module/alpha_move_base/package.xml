@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <name>alpha_move_base</name>
+  <version>0.0.1</version>
+  <description>The alpha_move_base package uses the ROS navigation stack to perform adaptice Monte- Carlo localization and uses costmap for path planning.</description>
+
+  <maintainer email="mayankm.iitk@gmail.com">Mayank Mittal</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
