@@ -1,3 +1,0 @@
-[submodule "perception_module/find-object"]
-	path = perception_module/find-object
-	url = https://github.com/introlab/find-object.git
