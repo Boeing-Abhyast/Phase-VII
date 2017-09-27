@@ -24,10 +24,11 @@ sudo apt-get install ros-kinetic-find-object-2d
 sudo apt-get install ros-kinetic-navigation
 sudo apt-get install ros-kinetic-node-manager-fkie
 ```
-4. Build the package using `catkin_make`
+4. Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)
 ```bash
 cd ~/catkin_ws
-catkin_make
+# To maximize performance, build the workspace in Release mode
+catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 5. Launch the [`node_manager`](https://fkie.github.io/multimaster_fkie/node_manager.html) to use the gui for launching nodes
 ```bash
