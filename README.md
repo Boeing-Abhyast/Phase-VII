@@ -13,7 +13,8 @@ catkin_make
 2. Clone this repository to your catkin workspace
 ```bash
 cd ~/catkin_ws/src
-git clone -r https://github.com/Boeing-Abhyast/Phase-VII.git
+git clone https://github.com/Boeing-Abhyast/Phase-VII.git
+git submodule update init --recursive
 ```
 3. [Install all dependency packages to run the repository](#additional-ros-packages-required)
 ```bash
@@ -39,7 +40,7 @@ rosrun node_manager_fkie node_manager
 * [Find Object 2D](http://wiki.ros.org/find_object_2d)
 * [Navigation Stack](http://wiki.ros.org/navigation)
 * [Node Manager](https://fkie.github.io/multimaster_fkie/node_manager.html)
-* [Darknet YOLOv2](https://github.com/pgigioli/darknet_ros)
+* [Darknet YOLOv2](https://github.com/leggedrobotics/darknet_ros)
 
 # Team Members
 

@@ -1,0 +1,3 @@
+[submodule "perception_module/darknet_ros"]
+	path = perception_module/darknet_ros
+	url = https://github.com/leggedrobotics/darknet_ros.git
