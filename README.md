@@ -14,7 +14,7 @@ catkin_make
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/Boeing-Abhyast/Phase-VII.git
-git submodule update init --recursive
+git submodule update --init --recursive
 ```
 3. [Install all dependency packages to run the repository](#additional-ros-packages-required)
 ```bash
