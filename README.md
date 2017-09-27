@@ -20,6 +20,8 @@ git clone -r https://github.com/Boeing-Abhyast/Phase-VII.git
 # TODO List
 sudo apt-get install ros-kinetic-slam-gmapping
 sudo apt-get install ros-kinetic-find-object-2d
+sudo apt-get install ros-kinetic-navigation
+sudo apt-get install ros-kinetic-node-manager-fkie
 ```
 4. Build the package using `catkin_make`
 ```bash
@@ -35,6 +37,8 @@ rosrun node_manager_fkie node_manager
 
 * [OpenSLAM GMapping](http://wiki.ros.org/gmapping)
 * [Find Object 2D](http://wiki.ros.org/find_object_2d)
+* [Navigation Stack](http://wiki.ros.org/navigation)
+* [Node Manager](https://fkie.github.io/multimaster_fkie/node_manager.html)
 * [Darknet YOLOv2](https://github.com/pgigioli/darknet_ros)
 
 # Team Members
