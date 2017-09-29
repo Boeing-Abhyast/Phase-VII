@@ -7,6 +7,7 @@ The contents of the repository is available under the [BSD-3-Clause](https://ope
 1. Create a catkin worspace following the guidelines given [here](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 ```bash
 mkdir -p ~/catkin_ws/src
+catkin_init_workspace
 cd ~/catkin_ws/
 catkin_make
 ```
