@@ -4,7 +4,6 @@ project(alpha_gazebo)
 find_package(catkin REQUIRED COMPONENTS
   diagnostic_aggregator
   gazebo_ros
-  kobuki_gazebo_plugins
   robot_pose_ekf
   robot_state_publisher
   xacro

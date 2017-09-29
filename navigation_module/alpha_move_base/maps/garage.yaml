@@ -1,7 +1,6 @@
-image: /home/mayankm/boeing-abhyast/phase_vii_ws/src/Phase-VII/navigation_module/alpha_move_base/maps/garage.pgm
+image: /home/naveen/mayank/rofl_ws/src/Phase-VII/navigation_module/alpha_move_base/maps/garage.pgm
 resolution: 0.010000
 origin: [-21.800000, -16.040000, 0.000000]
 negate: 0
 occupied_thresh: 0.65
 free_thresh: 0.196
-
