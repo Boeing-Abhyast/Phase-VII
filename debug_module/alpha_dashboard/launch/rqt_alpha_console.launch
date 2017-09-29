@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="alpha_dasboard" type="rqt_alpha_console.sh"
+     name="rqt_alpha_console" output="screen">
+ </node>
+
+</launch>
