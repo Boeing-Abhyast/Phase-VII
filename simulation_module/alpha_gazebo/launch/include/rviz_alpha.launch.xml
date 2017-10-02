@@ -1,8 +1,7 @@
 <launch>
 
   <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro"/>
-  <!-- <arg name="rvizconfig" default="$(find alpha_gazebo)/rviz/gazebo.rviz" /> -->
-  <arg name="rvizconfig" default="$(find alpha_description)/rviz/urdf.rviz" />
+  <arg name="rvizconfig" default="$(find alpha_gazebo)/rviz/gazebo.rviz" />
 
   <!-- Parsing xacro and loading robot_description parameter -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
