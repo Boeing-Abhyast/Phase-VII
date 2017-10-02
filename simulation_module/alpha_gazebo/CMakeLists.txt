@@ -7,7 +7,6 @@ find_package(catkin REQUIRED COMPONENTS
   robot_pose_ekf
   robot_state_publisher
   xacro
-  yocs_cmd_vel_mux
 )
 
 # include_directories(include)
