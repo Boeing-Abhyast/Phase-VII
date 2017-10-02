@@ -23,7 +23,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/raw_scan_filter.cpp
-# )
+## add the C++ raw_scan_filter
+add_executable(raw_scan_filter src/raw_scan_filter.cpp)
+target_link_libraries(raw_scan_filter
+  ${catkin_LIBRARIES}
+)
