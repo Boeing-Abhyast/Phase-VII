@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro"/>
+  <arg name="rvizconfig" default="$(find alpha_gazebo)/rviz/gazebo.rviz" />
+
+  <!-- Parsing xacro and loading robot_description parameter -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+
+  <!-- Launch visualization in rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
+
+  <!-- Publish current robot joint states using tf -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+</launch>
