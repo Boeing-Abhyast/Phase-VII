@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <name>alpha_master</name>
+  <version>0.0.1</version>
+  <description>The alpha_master package is the main package which calls upon other packages to perform particular task.</description>
+
+  <maintainer email="mayankm.iitk@gmail.com">Mayank Mittal</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
