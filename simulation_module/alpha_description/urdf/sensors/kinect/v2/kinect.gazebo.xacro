@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="kinect_camera_gazebo" params="name">
+  <xacro:macro name="kinect_camera_gazebo" params="name ns:=/ ">
     <gazebo reference="${name}_frame">
       <sensor type="depth" name="${name}_frame_sensor">
         <always_on>true</always_on>
@@ -19,15 +19,15 @@
           </clip>
         </camera>
         <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
-          <robotNamespace>/</robotNamespace>
+          <robotNamespace>${ns}</robotNamespace>
           <alwaysOn>true</alwaysOn>
           <updateRate>20.0</updateRate>
           <cameraName>${name}</cameraName>
-          <imageTopicName>${name}/ir/image_raw</imageTopicName>
-          <cameraInfoTopicName>${name}/ir/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>${name}/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>${name}/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>${name}/depth/points</pointCloudTopicName>
+          <imageTopicName>scene/image_raw</imageTopicName>
+          <cameraInfoTopicName>scene/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>depth/points</pointCloudTopicName>
           <frameName>${name}_optical_frame</frameName>
           <pointCloudCutoff>0.5</pointCloudCutoff>
           <distortionK1>0.00000001</distortionK1>

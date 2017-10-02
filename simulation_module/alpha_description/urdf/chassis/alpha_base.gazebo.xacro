@@ -29,7 +29,7 @@
     </gazebo>
   </xacro:macro>
 
-  <xacro:macro name="alpha_base_gazebo" params="name">
+  <xacro:macro name="alpha_base_gazebo" params="name ns:=/">
     <gazebo>
       <material>Gazebo/Grey</material>
       <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
@@ -46,7 +46,7 @@
 
     <gazebo>
       <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-        <robotNamespace>/</robotNamespace>
+        <robotNamespace>${ns}</robotNamespace>
         <alwaysOn>true</alwaysOn>
         <updateRate>100.0</updateRate>
         <leftJoint>fl_left_wheel_joint</leftJoint>
