@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>raw_scan_filter</name>
+  <name>alpha_scan_filter</name>
   <version>0.0.1</version>
-  <description>The raw_scan_filter package is for filtering of laser scanner data to prevent robot parts and shadow points from showing up in laser scans</description>
+  <description>The alpha_scan_filter package is for filtering of laser scanner data to prevent robot parts and shadow points from showing up in laser scans</description>
 
   <maintainer email="mayankm.iitk@gmail.com">Mayank Mittal</maintainer>
 
