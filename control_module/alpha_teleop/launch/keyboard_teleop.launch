@@ -1,0 +1,6 @@
+<launch>
+
+  <!--run the keyboard_teleop node to manually control the robot -->
+  <node pkg="alpha_teleop" type="keyboard_teleop" name="keyboard_teleop" output="screen" />
+
+</launch>
