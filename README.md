@@ -20,11 +20,12 @@ git submodule update --init --recursive
 3. [Install all dependency packages to run the repository](#additional-ros-packages-required)
 ```bash
 # TODO List
-sudo apt-get install ros-kinetic-slam-gmapping
-sudo apt-get install ros-kinetic-laser-filters
-sudo apt-get install ros-kinetic-find-object-2d
-sudo apt-get install ros-kinetic-navigation
-sudo apt-get install ros-kinetic-node-manager-fkie
+sudo apt-get install ros-kinetic-slam-gmapping     \
+                     ros-kinetic-laser-filters     \
+                     ros-kinetic-find-object-2d    \
+                     ros-kinetic-navigation        \
+                     ros-kinetic-node-manager-fkie \
+                     -y
 ```
 4. Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)
 ```bash
