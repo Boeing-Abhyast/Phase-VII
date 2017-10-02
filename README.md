@@ -21,6 +21,7 @@ git submodule update --init --recursive
 ```bash
 # TODO List
 sudo apt-get install ros-kinetic-slam-gmapping
+sudo apt-get install ros-kinetic-laser-filters
 sudo apt-get install ros-kinetic-find-object-2d
 sudo apt-get install ros-kinetic-navigation
 sudo apt-get install ros-kinetic-node-manager-fkie
@@ -39,6 +40,7 @@ rosrun node_manager_fkie node_manager
 ## <a name="additional-ros-packages-required"></a>Additional ROS Packages required
 
 * [OpenSLAM GMapping](http://wiki.ros.org/gmapping)
+* [Laser Filters](http://wiki.ros.org/laser_filters)
 * [Find Object 2D](http://wiki.ros.org/find_object_2d)
 * [Navigation Stack](http://wiki.ros.org/navigation)
 * [Node Manager](https://fkie.github.io/multimaster_fkie/node_manager.html)
