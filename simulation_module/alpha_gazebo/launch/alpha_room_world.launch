@@ -1,8 +1,9 @@
 <launch>
+  <arg name="rvizconfig" default="$(find alpha_gazebo)/rviz/gazebo.rviz" />
 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="false"/>
+  <arg name="gazebo_gui" default="true"/>
   <arg name="debug" default="false"/>
   <arg name="headless" default="false"/>
   <arg name="recording" default="false"/>
@@ -12,7 +13,7 @@
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="gui" value="$(arg gui)"/>
+    <arg name="gui" value="$(arg gazebo_gui)"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="headless" value="$(arg headless)"/> <!-- Inert - see gazebo_ros_pkgs issue #491-->
     <arg name="recording" value="$(arg recording)"/>
@@ -27,11 +28,8 @@
   </include>
 
   <!-- Launch robot alpha into rviz for visualization -->
-  <include file="$(find alpha_gazebo)/launch/include/rviz_alpha.launch.xml" />
-
-  <!-- Publish current robot joint states using tf -->
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
-    <param name="publish_frequency" type="double" value="50.0" />
-  </node>
+  <include file="$(find alpha_gazebo)/launch/include/rviz_alpha.launch.xml">
+    <arg name="rvizconfig" value="$(arg rvizconfig)"/>
+  </include>
 
 </launch>

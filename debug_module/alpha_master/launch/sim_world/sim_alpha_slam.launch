@@ -1,17 +1,18 @@
 <launch>
 
-  <!-- <arg name="map_save" default="$(find alpha_move_base)/maps/garage"/> -->
+  <arg name="rvizconfig" default="$(find alpha_master)/rviz/slam_gmapping.rviz" />
+  <arg name="gazebo_gui" default="false"/>
 
-  <!-- Spawn robot alpha into gazebo world room-->
-  <include file="$(find alpha_gazebo)/launch/alpha_room_world.launch" />
+  <!-- Spawn robot alpha into gazebo world room and visualize in rviz-->
+  <include file="$(find alpha_gazebo)/launch/alpha_room_world.launch">
+    <arg name="rvizconfig" value="$(arg rvizconfig)"/>
+    <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
+  </include>
 
   <!--run the keyboard_teleop node to manually control the robot -->
   <include file="$(find alpha_teleop)/launch/keyboard_teleop.launch" />
 
   <!--run the gmapping node to build the map -->
   <include file="$(find alpha_slam)/launch/slam_gmapping.launch" />
-
-  <!--run the node to save the map being created -->
-  <!-- <node pkg="map_server" type="map_server" name="map_garage" args="-f ${map_save}" /> -->
 
 </launch>
