@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>raw_scan_filter</name>
+  <version>0.0.1</version>
+  <description>The raw_scan_filter package is for filtering of laser scanner data to prevent robot parts and shadow points from showing up in laser scans</description>
+
+  <maintainer email="mayankm.iitk@gmail.com">Mayank Mittal</maintainer>
+
+  <license>BSD-3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>
