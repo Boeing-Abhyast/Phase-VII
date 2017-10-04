@@ -1,8 +1,9 @@
 <launch>
-  <arg name="perespective_file" default="$(find alpha_dashboard)/config/alpha_rqt_config.perspective"/>
+  <arg name="perspective_file" default="$(find alpha_dashboard)/config/alpha_rqt_config.perspective"/>
 
   <node pkg="alpha_dasboard" type="rqt_alpha_console.py"
-     name="rqt_alpha_console" output="screen">
- </node>
+     name="rqt_alpha_console" output="screen"
+     args="$(arg perspective_file)"
+  />
 
 </launch>
