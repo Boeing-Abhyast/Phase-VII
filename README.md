@@ -21,6 +21,7 @@ git submodule update --init --recursive
 ```bash
 # TODO List
 sudo apt-get install ros-kinetic-slam-gmapping     \
+                     ros-kinetic-hector-slam       \
                      ros-kinetic-laser-filters     \
                      ros-kinetic-find-object-2d    \
                      ros-kinetic-navigation        \
