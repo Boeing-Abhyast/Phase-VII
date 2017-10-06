@@ -2,7 +2,7 @@
   <!-- Map server -->
   <arg name="map_file" default="$(find alpha_move_base)/maps/garage.yaml"/>
 
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /> -->
 
   <!-- Localization -->
   <arg name="initial_pose_x" default="0.0"/>
@@ -15,5 +15,5 @@
   </include>
 
   <!-- Move base -->
-  <include file="$(find alpha_move_base)/launch/include/move_base.launch.xml"/>
+  <!-- <include file="$(find alpha_move_base)/launch/include/move_base.launch.xml"/> -->
 </launch>
