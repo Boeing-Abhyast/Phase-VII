@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="perspective_file" default="$(find alpha_dashboard)/config/alpha_rqt_config.perspective"/>
 

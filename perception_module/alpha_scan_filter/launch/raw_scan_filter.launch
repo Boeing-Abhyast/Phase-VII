@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 
   <node pkg="alpha_scan_filter" type="raw_scan_filter" name="base_laser_scan_filter" >
@@ -5,5 +6,5 @@
     <remap from="scan" to="base_scan" />
     <remap from="scan_filtered" to="base_scan_filtered" />
   </node>
-  
+
 </launch>

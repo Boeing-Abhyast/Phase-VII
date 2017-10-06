@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 
   <arg name="map_file" default="$(find alpha_move_base)/maps/garage.yaml"/>
