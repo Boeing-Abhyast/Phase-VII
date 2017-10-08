@@ -11,6 +11,6 @@ import rospy
 if __name__=="__main__":
     if len(sys.argv) > 2:
         print("Usage: rqt_alpha_console.py file")
-    else
+    else:
         command = "rqt --perspective-file" + (rospy.myargv(argv=sys.argv)[1])
         sys.exit(subprocess.call(command))
