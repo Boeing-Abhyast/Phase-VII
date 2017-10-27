@@ -18,9 +18,9 @@
       <arg name="enable_depth_diagnostics" value="true" />
     </include>
   </group>
-  
+
   <!-- map tf frames to the tf published from urdf file -->
-  <node pkg="tf" type="static_transform_publisher" name="kinect1_broadcaster" args="0 0 0 0 0 0 1 kinect_frame camera_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="kinect1_broadcaster" args="0 0 0 0 0 0 1 kinect_optical_frame camera_link 50" />
   <node pkg="tf" type="static_transform_publisher" name="kinect2_broadcaster" args="0 0 0 0 0 0 1 camera_link camera_rgb_frame 50" />
   <node pkg="tf" type="static_transform_publisher" name="kinect3_broadcaster" args="0 0 0 0 0 0 1 camera_link camera_depth_frame 50" />
   <node pkg="tf" type="static_transform_publisher" name="kinect4_broadcaster" args="0 0 0 0 0 0 1 camera_rgb_frame camera_rgb_optical_frame 50" />
