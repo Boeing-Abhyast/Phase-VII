@@ -1,6 +1,6 @@
 # Kinect XBOX 360
 
-A brief documentation on how to install the drivers for using [Microsoft Kinect XBOX 360](https://en.wikipedia.org/wiki/Kinect) camera with [ROS Kinetic](http://wiki.ros.org/kinetic).
+A brief documentation on how to install the drivers for using [Microsoft Kinect XBOX 360](https://en.wikipedia.org/wiki/Kinect) sensor with [ROS Kinetic](http://wiki.ros.org/kinetic).
 
 ## Instructions
 
@@ -49,3 +49,7 @@ Run the following command to visualize the kinect data using rviz:
 ```
 roslaunch hardware_kinect kinect360_rviz.launch
 ```
+
+## Calibrating the Kinect sensor
+
+In order to calibrate the sensor, follow the instructions available [here](http://wiki.ros.org/openni_launch/Tutorials/IntrinsicCalibration).
