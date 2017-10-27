@@ -4,6 +4,10 @@
   <!-- launch freenect nodelets-->
   <include file="$(find freenect_launch)/launch/freenect.launch">
     <arg name="depth_registration" value="true"/>
+    <!-- freenect-diagnostics for debugging a working system-->
+    <arg name="enable_rgb_diagnostics" value="true" />
+    <!-- <arg name="enable_ir_diagnostics" value="true" /> -->
+    <arg name="enable_depth_diagnostics" value="true" />
   </include>
 
   <!-- map tf frames to the tf published from urdf file -->

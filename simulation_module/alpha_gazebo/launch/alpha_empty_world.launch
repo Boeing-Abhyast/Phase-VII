@@ -26,7 +26,6 @@
   <!-- Launch robot alpha into rviz for visualization -->
   <include file="$(find alpha_gazebo)/launch/include/rviz_alpha.launch.xml">
     <arg name="rvizconfig" value="$(arg rvizconfig)"/>
-    <arg name="gui" value="$(arg rviz_gui)"/>
   </include>
 
 </launch>

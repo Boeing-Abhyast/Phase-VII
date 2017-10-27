@@ -14,7 +14,7 @@
       <arg name="depth_registration" value="true"/>
       <!-- freenect-diagnostics for debugging a working system-->
       <arg name="enable_rgb_diagnostics" value="true" />
-      <arg name="enable_ir_diagnostics" value="true" />
+      <!-- <arg name="enable_ir_diagnostics" value="true" /> -->
       <arg name="enable_depth_diagnostics" value="true" />
     </include>
   </group>
