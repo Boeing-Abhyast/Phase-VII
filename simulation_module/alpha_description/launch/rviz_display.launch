@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-  <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro"/>
+  <arg name="gui" default="false" />
+  <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro" />
   <arg name="rvizconfig" default="$(find alpha_description)/rviz/urdf.rviz" />
 
   <!-- Parsing xacro and loading robot_description parameter -->
