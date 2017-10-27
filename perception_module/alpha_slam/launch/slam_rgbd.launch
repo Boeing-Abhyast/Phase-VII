@@ -8,6 +8,8 @@
   <arg name="depth_topic" default="/kinect/camera/depth_registered/image_raw" />
   <arg name="camera_info_topic" default="/kinect/camera/rgb/camera_info" />
 
+  <arg name="frame_id" default="base_link"/>
+
   <arg name="rtabmap_ns" default="rtabmap"/>
   <arg name="rtabmap_args" default="delete_db_on_start"/>
 
@@ -20,6 +22,9 @@
     <arg name="rgb_topic" value="$(arg rgb_topic)" />
     <arg name="depth_topic" value="$(arg depth_topic)" />
     <arg name="camera_info_topic" value="$(arg camera_info_topic)" />
+
+    <!-- Frame names -->
+    <arg name="frame_id" value="$(arg frame_id)"/>
 
     <arg name="namespace" value="$(arg rtabmap_ns)"/>
     <arg name="rtabmap_args" value="$(arg rtabmap_args)"/>

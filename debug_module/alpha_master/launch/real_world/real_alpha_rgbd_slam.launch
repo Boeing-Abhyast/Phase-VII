@@ -2,6 +2,7 @@
 <launch>
 
   <arg name="rvizconfig" default="$(find alpha_master)/rviz/slam_rgbd.rviz" />
+  <arg name="rtabmapviz" default="false" />
 
   <!-- Spawn robot alpha visualize in rviz and publish tf-->
   <include file="$(find alpha_description)/launch/rviz_display.launch">
@@ -13,7 +14,7 @@
 
   <!--launch rgbd-slam-->
   <include file="$(find alpha_slam)/launch/slam_rgbd.launch">
-
+    <arg name="rtabmapviz" value="$(arg rtabmapviz)" />
   </include>
 
 </launch>
