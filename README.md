@@ -28,13 +28,16 @@ sudo apt-get install ros-kinetic-slam-gmapping     \
                      ros-kinetic-node-manager-fkie \
                      -y
 ```
-4. Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)
+4. To setup the hardware for *Alpha*, follow the instructions in the following documentations:
+* [Setting Up Microsoft Kinect](hardware_module/hardware_kinect/README.md)
+
+5. Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)
 ```bash
 cd ~/catkin_ws
 # To maximize performance, build the workspace in Release mode
 catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
-5. Launch the [`node_manager`](https://fkie.github.io/multimaster_fkie/node_manager.html) to use the gui for launching nodes
+6. Launch the [`node_manager`](https://fkie.github.io/multimaster_fkie/node_manager.html) to use the gui for launching nodes
 ```bash
 rosrun node_manager_fkie node_manager       
 ```
