@@ -10,6 +10,8 @@ Panels:
         - /TF1
         - /TF1/Frames1
         - /TF1/Tree1
+        - /PointCloud21
+        - /Image1
       Splitter Ratio: 0.5
     Tree Height: 525
   - Class: rviz/Selection
@@ -30,7 +32,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: PointCloud2
 Visualization Manager:
   Class: ""
   Displays:
@@ -168,7 +170,21 @@ Visualization Manager:
           Value: true
         base_link:
           Value: true
+        camera_depth_frame:
+          Value: true
+        camera_depth_optical_frame:
+          Value: true
+        camera_link:
+          Value: true
+        camera_rgb_frame:
+          Value: true
+        camera_rgb_optical_frame:
+          Value: true
         fl_caster_link:
+          Value: true
+        fl_left_wheel_link:
+          Value: true
+        fl_right_wheel_link:
           Value: true
         fl_rotation_link:
           Value: true
@@ -189,11 +205,24 @@ Visualization Manager:
             fl_rotation_link:
               fl_caster_link:
                 {}
+              fl_left_wheel_link:
+                {}
+              fl_right_wheel_link:
+                {}
             hokuyo_frame:
               {}
             kinect_frame:
-              kinect_optical_frame:
+              camera_depth_frame:
                 {}
+              camera_link:
+                {}
+              camera_rgb_frame:
+                {}
+              kinect_optical_frame:
+                camera_depth_optical_frame:
+                  {}
+                camera_rgb_optical_frame:
+                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -206,7 +235,7 @@ Visualization Manager:
       Channel Name: intensity
       Class: rviz/PointCloud2
       Color: 255; 255; 255
-      Color Transformer: ""
+      Color Transformer: RGB8
       Decay Time: 0
       Enabled: true
       Invert Rainbow: false
@@ -215,20 +244,20 @@ Visualization Manager:
       Min Color: 0; 0; 0
       Min Intensity: 0
       Name: PointCloud2
-      Position Transformer: ""
+      Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
       Size (m): 0.00999999978
       Style: Flat Squares
-      Topic: /camera/depth_registered/points
+      Topic: /kinect/camera/depth_registered/points
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /camera/rgb/image_color
+      Image Topic: /kinect/camera/rgb/image_color
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -262,7 +291,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.61013293
+      Distance: 5.01661825
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -277,10 +306,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.419795811
+      Pitch: 0.644795656
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.44221461
+      Yaw: 3.52721381
     Saved: ~
 Window Geometry:
   Displays:
