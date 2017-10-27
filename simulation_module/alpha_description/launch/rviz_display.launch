@@ -1,16 +1,18 @@
 <?xml version="1.0"?>
 <launch>
-
   <arg name="model" default="$(find alpha_description)/robots/alpha_bot.urdf.xacro" />
   <arg name="rvizconfig" default="$(find alpha_description)/rviz/urdf.rviz" />
+  <arg name="gui" default="false" />
 
   <!-- Parsing xacro and loading robot_description parameter -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+    <!-- Setting gui parameter to true for display joint slider, for getting joint control -->
+  <param name="use_gui" value="$(arg gui)"/>
 
+  <!-- Publish the joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <!-- Publish current robot joint states using tf -->
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
-    <param name="publish_frequency" type="double" value="100.0" />
-  </node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <!-- Launch visualization in rviz -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
 
