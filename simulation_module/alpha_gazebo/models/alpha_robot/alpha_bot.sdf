@@ -3,7 +3,7 @@
     <link name='base_footprint'>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose frame=''>0.019002 0 0.074355 0 -0 0</pose>
+        <pose frame=''>0.019002 0 0.073855 0 -0 0</pose>
         <mass>10.3705</mass>
         <inertia>
           <ixx>0.103971</ixx>
@@ -15,7 +15,7 @@
         </inertia>
       </inertial>
       <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
-        <pose frame=''>0 0 0.09169 0 0 -1.5708</pose>
+        <pose frame=''>0 0 0.09119 0 0 -1.5708</pose>
         <geometry>
           <cylinder>
             <length>0.10938</length>
@@ -32,7 +32,7 @@
         </surface>
       </collision>
       <collision name='base_footprint_fixed_joint_lump__fl_rotation_link_collision_1'>
-        <pose frame=''>0.11 0 0.037 1.5708 -0 1.5708</pose>
+        <pose frame=''>0.11 0 0.0365 1.5708 -0 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -41,7 +41,7 @@
         </geometry>
       </collision>
       <collision name='base_footprint_fixed_joint_lump__fl_caster_link_collision_2'>
-        <pose frame=''>0.11 0 0.011 1.5708 -0 1.5708</pose>
+        <pose frame=''>0.11 0 0.0105 1.5708 -0 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -66,7 +66,7 @@
         </surface>
       </collision>
       <collision name='base_footprint_fixed_joint_lump__hokuyo_frame_collision_3'>
-        <pose frame=''>0 0 0.3455 0 -0 0</pose>
+        <pose frame=''>0 0 0.345 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.058 0.058 0.087</size>
@@ -82,7 +82,7 @@
         </surface>
       </collision>
       <collision name='base_footprint_fixed_joint_lump__kinect_frame_collision_4'>
-        <pose frame=''>0.125 0.012 0.252 0 -0 0</pose>
+        <pose frame=''>0.125 0.012 0.2515 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
@@ -107,7 +107,7 @@
         </geometry>
       </visual>
       <visual name='base_footprint_fixed_joint_lump__base_link_visual_1'>
-        <pose frame=''>0 0 0.006 1.5708 0 -1.5708</pose>
+        <pose frame=''>0 0 0.0055 1.5708 0 -1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -122,7 +122,7 @@
         </material>
       </visual>
       <visual name='base_footprint_fixed_joint_lump__fl_rotation_link_visual_2'>
-        <pose frame=''>0.11 0 0.037 1.5708 -0 1.5708</pose>
+        <pose frame=''>0.11 0 0.0365 1.5708 -0 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -131,7 +131,7 @@
         </geometry>
       </visual>
       <visual name='base_footprint_fixed_joint_lump__fl_caster_link_visual_3'>
-        <pose frame=''>0.11 0 0.011 1.5708 -0 1.5708</pose>
+        <pose frame=''>0.11 0 0.0105 1.5708 -0 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -146,7 +146,7 @@
         </material>
       </visual>
       <visual name='base_footprint_fixed_joint_lump__hokuyo_frame_visual_4'>
-        <pose frame=''>0 0 0.357 0 -0 0</pose>
+        <pose frame=''>0 0 0.3565 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -161,7 +161,7 @@
         </material>
       </visual>
       <visual name='base_footprint_fixed_joint_lump__kinect_frame_visual_5'>
-        <pose frame=''>0.125 0.012 0.252 0 -0 0</pose>
+        <pose frame=''>0.125 0.012 0.2515 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
@@ -211,7 +211,7 @@
           <frameName>hokuyo_frame</frameName>
           <hokuyoMinIntensity>101</hokuyoMinIntensity>
         </plugin>
-        <pose frame=''>0 0 0.357 0 -0 0</pose>
+        <pose frame=''>0 0 0.3565 0 -0 0</pose>
       </sensor>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -254,11 +254,11 @@
           <focalLength>0</focalLength>
           <hackBaseline>0</hackBaseline>
         </plugin>
-        <pose frame=''>0.125 0 0.252 0 -0 0</pose>
+        <pose frame=''>0.125 0 0.2515 0 -0 0</pose>
       </sensor>
     </link>
     <link name='fl_left_wheel_link'>
-      <pose frame=''>-0.055 0.132 0.059 -0.785393 1.57079 -2.3562</pose>
+      <pose frame=''>-0.055 0.132 0.0585 -0.785393 1.57079 -2.3562</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>1</mass>
@@ -334,7 +334,7 @@
       </axis>
     </joint>
     <link name='fl_right_wheel_link'>
-      <pose frame=''>-0.055 -0.132 0.059 -0.785383 -1.57079 -0.785403</pose>
+      <pose frame=''>-0.055 -0.132 0.0585 -0.785383 -1.57079 -0.785403</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>1</mass>
@@ -416,8 +416,8 @@
       <updateRate>100.0</updateRate>
       <leftJoint>fl_left_wheel_joint</leftJoint>
       <rightJoint>fl_right_wheel_joint</rightJoint>
-      <wheelSeparation>0.30</wheelSeparation>
-      <wheelDiameter>0.07</wheelDiameter>
+      <wheelSeparation>0.308</wheelSeparation>
+      <wheelDiameter>0.106</wheelDiameter>
       <wheelTorque>20</wheelTorque>
       <wheelAcceleration>0</wheelAcceleration>
       <commandTopic>cmd_vel</commandTopic>
