@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="rtabmapviz" default="false" />
+  <arg name="rviz" default="false" />
+
+  <arg name="rgb_topic" default="/kinect/camera/rgb/image_rect_color" />
+  <arg name="depth_topic" default="/kinect/camera/depth_registered/image_raw" />
+  <arg name="camera_info_topic" default="/kinect/camera/rgb/camera_info" />
+
+  <arg name="rtabmap_ns" default="rtabmap"/>
+  <arg name="rtabmap_args" default="delete_db_on_start"/>
+
+  <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+
+    <!-- Visualization mode-->
+    <arg name="rtabmapviz" value="$(arg rtabmapviz)" />
+    <arg name="rviz" value="$(arg rviz)" />
+
+    <!-- RGB-D related topics -->
+    <arg name="rgb_topic" value="$(arg rgb_topic)" />
+    <arg name="depth_topic" value="$(arg depth_topic)" />
+    <arg name="camera_info_topic" value="$(arg camera_info_topic)" />
+
+    <arg name="namespace" value="$(arg rtabmap_ns)"/>
+    <arg name="rtabmap_args" value="$(arg rtabmap_args)"/>
+  </include>
+
+</launch>

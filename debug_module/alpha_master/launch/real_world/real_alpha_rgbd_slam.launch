@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="rvizconfig" default="$(find hardware_kinect)/rviz/kinect.rviz" />
+
+  <!-- Spawn robot alpha visualize in rviz and publish tf-->
+  <include file="$(find alpha_description)/launch/rviz_display.launch">
+    <arg name="rvizconfig" value="$(arg rvizconfig)"/>
+  </include>
+  
+  <!--launch the kinect hardware -->
+  <include file="$(find hardware_kinect)/launch/kinect360.launch" />
+
+  <!--launch rgbd-slam-->
+  <include file="$(find alpha_slam)/launch/slam_rgbd.launch">
+
+  </include>
+
+</launch>

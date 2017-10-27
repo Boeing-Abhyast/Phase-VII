@@ -22,6 +22,7 @@ git submodule update --init --recursive
 # TODO List
 sudo apt-get install ros-kinetic-slam-gmapping     \
                      ros-kinetic-hector-slam       \
+                     ros-kinetic-rtabmap-ros        \
                      ros-kinetic-laser-filters     \
                      ros-kinetic-find-object-2d    \
                      ros-kinetic-navigation        \
@@ -45,6 +46,8 @@ rosrun node_manager_fkie node_manager
 ## <a name="additional-ros-packages-required"></a>Additional ROS Packages required
 
 * [OpenSLAM GMapping](http://wiki.ros.org/gmapping)
+* [Hector SLAM](http://wiki.ros.org/hector_slam)
+* [RGBD SLAM](http://wiki.ros.org/rtabmap_ros)
 * [Laser Filters](http://wiki.ros.org/laser_filters)
 * [Find Object 2D](http://wiki.ros.org/find_object_2d)
 * [Navigation Stack](http://wiki.ros.org/navigation)

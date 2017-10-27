@@ -24,7 +24,7 @@
           <updateRate>20.0</updateRate>
           <cameraName>${name}</cameraName>
           <imageTopicName>camera/rgb/image_raw</imageTopicName>
-          <cameraInfoTopicName>camera/scene/camera_info</cameraInfoTopicName>
+          <cameraInfoTopicName>camera/rgb/camera_info</cameraInfoTopicName>
           <depthImageTopicName>camera/depth/image_raw</depthImageTopicName>
           <depthImageCameraInfoTopicName>camera/depth/camera_info</depthImageCameraInfoTopicName>
           <pointCloudTopicName>camera/depth/points</pointCloudTopicName>
