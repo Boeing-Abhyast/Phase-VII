@@ -47,5 +47,5 @@ roslaunch freenect_launch freenect.launch
 
 Run the following command to visualize the kinect data using rviz:
 ```
-roslaunch hardware_kinect kinect360.launch
+roslaunch hardware_kinect kinect360_rviz.launch
 ```
