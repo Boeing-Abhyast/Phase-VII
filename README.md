@@ -1,4 +1,4 @@
-This repository contains all the source code and design files for the work done by the ground vehicle sub-team in the Phase-VII of The Boeing Company's University Relation Program at IIT Kanpur called [Abhyast](https://www.iitk.ac.in/dord/boeing/public/).
+This repository contains all the source code and design files for the work done by the __ground vehicle sub-team__ in the Phase-VII of The Boeing Company's University Relation Program at IIT Kanpur called [Abhyast](https://www.iitk.ac.in/dord/boeing/public/).
 
 The contents of the repository is available under the [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause).
 
@@ -22,7 +22,7 @@ git submodule update --init --recursive
 # TODO List
 sudo apt-get install ros-kinetic-slam-gmapping     \
                      ros-kinetic-hector-slam       \
-                     ros-kinetic-rtabmap-ros        \
+                     ros-kinetic-rtabmap-ros       \
                      ros-kinetic-laser-filters     \
                      ros-kinetic-find-object-2d    \
                      ros-kinetic-navigation        \
@@ -43,6 +43,10 @@ catkin_make -DCMAKE_BUILD_TYPE=Release
 rosrun node_manager_fkie node_manager       
 ```
 
+__NOTE:__ The master level launch files are in the package [`alpha_master`](debug_module/alpha_master):
+* For Simulation on Gazebo: `sim_*.launch`
+* For Real World Implementation: `real_*.launch`
+
 ## <a name="additional-ros-packages-required"></a>Additional ROS Packages required
 
 * [OpenSLAM GMapping](http://wiki.ros.org/gmapping)
@@ -56,9 +60,6 @@ rosrun node_manager_fkie node_manager
 
 # Team Members
 
-__Main Repository Maintainer:__ [Mayank Mittal](mayankm96.github.io)
-
-## Ground Vehicle Sub- Team
 | Name | Department | Year |
 | ------------- |:-------------:| -----:|
 | Mayank Mittal | Electrical Engineering | Y14 |
@@ -66,10 +67,4 @@ __Main Repository Maintainer:__ [Mayank Mittal](mayankm96.github.io)
 | Vikulp Bansal | Electrical Engineering | Y14 |
 | Tushar Aggarwal | Mechanical Engineering | Y14 |
 
-
-## Aerial Vehicle Sub- Team
-| Name | Department | Year |
-| ------------- |:-------------:| -----:|
-| Divyanshu Narayan | Mechanical Engineering | Y13 |
-| Krishnraj Singh Gaur | Aerospace Engineering | Y13 |
-| Rachit Agarwal | Civil Engineering | Y13 |
+__In case of any queries, contact :__ [Mayank Mittal](mayankm96.github.io)
