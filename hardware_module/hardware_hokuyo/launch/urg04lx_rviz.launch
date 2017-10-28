@@ -16,6 +16,6 @@
   </group>
 
   <!-- map tf frames to the tf published from urdf file -->
-  <node pkg="tf" type="static_transform_publisher" name="hokuyo_broadcaster" args="0 0 0 0 0 0 1 hokuyo_frame laser 50" />
+  <node pkg="tf" type="static_transform_publisher" name="hokuyo_broadcaster" args="0 0 0 0 0 -0.70711 0.70711 hokuyo_frame laser 50" />
 
 </launch>
