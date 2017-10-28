@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="scan_topic" default="base_scan" />
+    <arg name="scan_topic" default="hokuyo/base_scan" />
 
     <param name="use_sim_time" value="true"/>
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
