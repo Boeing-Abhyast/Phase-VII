@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>hardware_hokuyo</name>
+  <version>0.1.0</version>
+  <description>The hardware_hokuyo package is used for running the Hokuyo Lidar.</description>
+
+  <maintainer email="mayankm.iitk@gmail.com">Mayank Mittal</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf2</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf2</run_depend>
+  <run_depend>tf2_ros</run_depend>
+
+</package>

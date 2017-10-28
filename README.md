@@ -11,12 +11,14 @@ catkin_init_workspace
 cd ~/catkin_ws/
 catkin_make
 ```
+
 2. Clone this repository to your catkin workspace
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/Boeing-Abhyast/Phase-VII.git
 git submodule update --init --recursive
 ```
+
 3. [Install all dependency packages to run the repository](#additional-ros-packages-required)
 ```bash
 # TODO List
@@ -29,8 +31,10 @@ sudo apt-get install ros-kinetic-slam-gmapping     \
                      ros-kinetic-node-manager-fkie \
                      -y
 ```
+
 4. To setup the hardware for *Alpha*, follow the instructions in the following documentations:
 	* [Setting Up Microsoft Kinect](hardware_module/hardware_kinect/README.md)
+  * [Setting Up Hokuyo LIDAR](hardware_module/hardware_hokuyo/README.md)
 
 5. Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)
 ```bash
@@ -38,6 +42,7 @@ cd ~/catkin_ws
 # To maximize performance, build the workspace in Release mode
 catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
+
 6. Launch the [`node_manager`](https://fkie.github.io/multimaster_fkie/node_manager.html) to use the gui for launching nodes
 ```bash
 rosrun node_manager_fkie node_manager       
