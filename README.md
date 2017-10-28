@@ -33,8 +33,8 @@ sudo apt-get install ros-kinetic-slam-gmapping     \
 ```
 
 4. To setup the hardware for *Alpha*, follow the instructions in the following documentations:
-	* [Setting Up Microsoft Kinect](hardware_module/hardware_kinect/README.md)
-  * [Setting Up Hokuyo LIDAR](hardware_module/hardware_hokuyo/README.md)
+    * [Setting Up Microsoft Kinect](hardware_module/hardware_kinect/README.md)
+    * [Setting Up Hokuyo LIDAR](hardware_module/hardware_hokuyo/README.md)
 
 5. Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)
 ```bash
