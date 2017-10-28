@@ -40,9 +40,23 @@ __NOTE:__ To test whether the driver is correctly installed or not, run: `~/Open
 ```bash
 sudo apt-get install ros-kinetic-freenect-camera ros-kinetic-freenect-launch
 ```
+
 5. To run Kinect on ROS:
 ```bash
-roslaunch freenect_launch freenect.launch
+roslaunch freenect_launch freenect.launch depth_registered:=true
+```
+
+6. Setup [tf](http://wiki.ros.org/tf) tree to visualize the point cloud on rviz:
+```bash
+rosrun tf static_transform_publisher 0 0 0 0 0 0 1 map chassis 10  
+rosrun tf static_transform_publisher 0 0 0 0 0 0 0 chassis camera_rgb_frame 10
+rosrun tf static_transform_publisher 0 0 0 0 0 0 1 camera_rgb_frame camera_rgb_optical_frame 10
+rosrun tf static_transform_publisher 0 0 0 0 0 0 1 camera_depth_frame camera_depth_optical_frame 10
+```
+
+7. Open [rviz](http://wiki.ros.org/rviz) to visualize the point cloud
+```bash
+rosrun rviz rviz
 ```
 
 ## Running Kinect with *Alpha*
