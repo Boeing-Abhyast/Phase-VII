@@ -72,4 +72,4 @@ __NOTE:__ The master level launch files are in the package [`alpha_master`](debu
 | Vikulp Bansal | Electrical Engineering | Y14 |
 | Tushar Aggarwal | Mechanical Engineering | Y14 |
 
-__In case of any queries, contact :__ [Mayank Mittal](mayankm96.github.io)
+__In case of any queries, contact :__ [Mayank Mittal](https://mayankm96.github.io)
